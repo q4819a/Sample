@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ui.MainActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_spring"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="刷新控件演示" />
+
+
+            <Button
+                android:id="@+id/commondialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="通用dialog" />
+
+            <Button
+                android:id="@+id/progressdialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ProgressDlg" />
+
+            <Button
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="定位" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

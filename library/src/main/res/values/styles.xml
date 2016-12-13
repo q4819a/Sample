@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--ProgressDlg-->
+    <style name="progressDlg" parent="Base.V7.Theme.AppCompat.Dialog">
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+    <!--commonDialog-->
+    <style name="commonDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Library</string>
+    <string name="network_err">网络异常，请检查网络连接！</string>
+</resources>

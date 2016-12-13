@@ -1,0 +1,43 @@
+工具类：
+    |----
+        |---AnimationUtils：             *动画工具类*
+        |---AppUtils:APP工具类           *APP相关信息工具类。获取版本信息*
+        |---ArrayUtils:数组工具类        *提供一些有关数组的便捷方法*
+        |---AssetDatabaseOpenHelper：    *数据库操作*
+        |---AssetUtils：                 *AssetUtils获取内容*
+        |---Base64:base64工具            *base64加密工具*
+        |---BitmapUtil:Bitmap工具类      *主要包括获取Bitmap和对Bitmap的操作*
+        |---ByteUtils:字节工具类         *提供一些有关字节的便捷方法*
+        |---ChannelUtil:渠道信息         *获取渠道信息*
+        |---CheckingUtils:数据验证       *提供常用数据验证的工具类，不符合的话就抛异常*
+        |---Countdown:倒计时器           *倒计时工具类*
+        |---DataCleanManager：清除管理器 *清除内/外缓存，清除数据库，清除sharedPreference，清除files和清除自定义目录*
+        |---DateUtil:日期操作工具类      *日期操作工具类,格式化，转型*
+        |---DensityUtil：像素工具        *像素工具*
+        |---DES:DES加密                  *DES加密*
+        |---DialogUtils：dialog工具      *对话框工具箱*
+        |---DoubleClickExitDetector：    *双击退出识别器*
+        |---HanziToPinyin：              *汉字转拼音*
+        |---ImageProcessor：图片处理器   *图片处理器，缩放，选转等*
+        |---InputMethodUtils：输入框     *输入框操作*
+        |---LoopTimer：循环定时器        *循环定时器*
+        |---MD5：                        *MD5工具*
+        |---NetWorkUtils：网络工具       *网络工具处理*
+        |---PhoneUtil：                  *手机组件调用工具类*
+        |---PreferencesUtils：           *Preferences存储*
+        |---RandomUtils：                *获取一个随机数*
+        |---RecorderControl：            *调用系统录音*
+        |---ReflectUtils：反射工具类     *提供一些Java基本的反射功能*
+        |---RegexUtils：正则表达式工具类 *提供一些常用的正则表达式*
+        |---RegularExpression：验证      *正则验证相关操作的类.*
+        |---SDCardUtils：sd卡工具        *sd卡工具类
+        |---SerializeUtils：             *SerializeUtils*
+        |---SingletonUtils：             *单例模式*
+        |---StreamUtils：                *流转换成字符串*
+        |---TransitionTime：             *用来计算显示的时间是多久之前的*
+        |---FileUtils：文件工具          *文件操作*
+        |---IOUtils: IO utils            *IO流关闭保存和删除文件*
+        |---StringUtils:字符串工具类     *提供一些字符串相关的便捷方法*
+        |---WebViewManager：             *WebView管理器，提供常用设置*
+        |---WindowUtils：窗口工具箱      *窗口工具箱*
+        |---ZipUtil：                    *Java utils 实现的Zip工具*
