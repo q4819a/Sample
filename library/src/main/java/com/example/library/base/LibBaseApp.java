@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.example.library.tools.ToastUtils;
+import com.pgyersdk.crash.PgyCrashManager;
 
 /**
  * Created by Administrator on 2016/12/9.
@@ -24,6 +25,7 @@ public abstract class LibBaseApp extends Application {
         initLogger();
         initToast();
         initUM();
+        initPGY();
     }
 
     /**
@@ -50,6 +52,13 @@ public abstract class LibBaseApp extends Application {
      * UMAnalyticsConfig(Context context, String appkey, String channelId)
      */
     public abstract void initUM();
+
+    /**
+     * 蒲公英内测
+     */
+    public void initPGY() {
+        PgyCrashManager.register(this);
+    }
 
 
 }

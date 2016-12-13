@@ -1,4 +1,4 @@
-package com.example.library.utils;
+package com.example.library.location;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;

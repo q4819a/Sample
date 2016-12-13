@@ -5,7 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.baidu.location.BDLocation;
+import com.example.library.tools.ToastUtils;
+import com.example.library.location.BDLocationUtils;
 import com.example.library.widget.commondialog.CommonDialog;
+import com.example.library.widget.progressdialog.ProgressDlg;
 import com.july.sample.R;
 import com.july.sample.ui.test.SpringTest;
 import com.orhanobut.logger.Logger;
@@ -49,8 +53,15 @@ public class MainActivity extends AppCompatActivity {
                 }).show();
                 break;
             case R.id.progressdialog:
+                ProgressDlg.showDialog(this, "测试");
                 break;
             case R.id.location:
+                BDLocationUtils.getInstance().locationOnce(new BDLocationUtils.LocationFinishListener() {
+                    @Override
+                    public void locationFinish(BDLocation bdLocation) {
+                        ToastUtils.showShortToast("定位：" + bdLocation.getAddrStr());
+                    }
+                });
                 break;
         }
     }
