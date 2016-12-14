@@ -12,6 +12,7 @@ import com.example.library.widget.springview.container.RotationHeader;
 import com.example.library.widget.springview.widget.SpringView;
 import com.july.sample.R;
 import com.july.sample.base.BaseActivity;
+import com.july.sample.base.BasePresenter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,6 +41,11 @@ public class SpringTest extends BaseActivity {
         setContentView(R.layout.activity_spring_test);
         ButterKnife.bind(this);
         initView();
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
     }
 
     private void initView() {

@@ -15,7 +15,7 @@ public class ProgressDlg extends ProgressDialog {
 
 
     public ProgressDlg(Context context) {
-        super(context);
+        super(context, R.style.progressDlg);
     }
 
     public ProgressDlg(Context context, int theme) {

@@ -29,4 +29,7 @@ dependencies {
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.pgyersdk:sdk:2.4.0'
+    compile 'com.lzy.net:okgo:+'
+    compile 'com.lzy.net:okrx:+'
+    compile 'com.lzy.net:okserver:+'
 }

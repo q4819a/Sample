@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.example.library.tools.ToastUtils;
+import com.lzy.okgo.OkGo;
 import com.pgyersdk.crash.PgyCrashManager;
 
 /**
@@ -26,7 +27,16 @@ public abstract class LibBaseApp extends Application {
         initToast();
         initUM();
         initPGY();
+        initOKGO();
     }
+    /**
+     * 初始化OKGO
+     * 地址：https://github.com/jeasonlzy/okhttp-OkGo
+     */
+    protected void initOKGO() {
+        OkGo.init(this);
+    }
+
 
     /**
      * 初始化logger

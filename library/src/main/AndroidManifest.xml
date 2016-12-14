@@ -46,7 +46,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <!-- 位置相关权限，不是必须添加 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -78,6 +78,10 @@
             android:name="PGYER_APPID"
             android:value="4b6e8877dfcc2462bedb37dcf66b6d87"></meta-data>
         <!--蒲公英内测  end-->
+
+        <!--OKGO start-->
+        <service android:name="com.lzy.okserver.download.DownloadService" />
+        <!--OKGO end-->
 
     </application>
 
