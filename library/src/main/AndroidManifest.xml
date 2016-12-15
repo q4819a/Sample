@@ -104,6 +104,13 @@
             android:screenOrientation="behind"></activity>
         <!--支付宝  end-->
 
+        <!--微信支付  start-->
+        <activity
+            android:name="net.sourceforge.simcpux.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <!--微信支付  end-->
+
     </application>
 
 </manifest>

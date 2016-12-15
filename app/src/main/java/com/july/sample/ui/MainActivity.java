@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.baidu.location.BDLocation;
 import com.example.library.location.BDLocationUtils;
 import com.example.library.pay.AliPayUtils;
+import com.example.library.pay.WXPayUtils;
 import com.example.library.tools.ToastUtils;
 import com.example.library.widget.bottomdialog.ActionSheetDialog;
 import com.example.library.widget.commondialog.CommonDialog;
@@ -17,6 +18,7 @@ import com.july.sample.base.BaseActivity;
 import com.july.sample.presenter.MainActivityPresenter;
 import com.july.sample.ui.test.SpringTest;
 import com.orhanobut.logger.Logger;
+import com.tencent.mm.sdk.modelpay.PayReq;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -94,13 +96,27 @@ public class MainActivity extends BaseActivity<IMainActivity, MainActivityPresen
                         .addSheetItem("微信", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
                             @Override
                             public void onClick(int which) {
-                                ToastUtils.showShortToast("微信");
+                                wxpayTest();
                             }
                         }).show();
                 break;
         }
     }
 
+    /**
+     * 微信支付
+     */
+    public void wxpayTest() {
+        PayReq request = new PayReq();
+        request.appId = "wxd930ea5d5a258f4f";
+        request.partnerId = "1900000109";
+        request.prepayId = "1101000000140415649af9fc314aa427";
+        request.packageValue = "Sign=WXPay";
+        request.nonceStr = "1101000000140429eb40476f8896f4c9";
+        request.timeStamp = "1398746574";
+        request.sign = "7FFECB600D7157C5AA49810D2D8F28BC2811827B";
+        WXPayUtils.getInstance().pay(this, request);
+    }
 
     /**
      * 支付宝支付

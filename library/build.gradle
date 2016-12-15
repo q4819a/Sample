@@ -32,5 +32,4 @@ dependencies {
     compile 'com.lzy.net:okgo:+'
     compile 'com.lzy.net:okrx:+'
     compile 'com.lzy.net:okserver:+'
-    compile files('libs/alipaySdk-20161129.jar')
 }
