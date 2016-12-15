@@ -18,13 +18,17 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends LibBas
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = createPresenter();//创建Presenter
-        mPresenter.attachView((V) this);
+        if (mPresenter != null) {
+            mPresenter.attachView((V) this);
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.detachView();
+        if (mPresenter != null) {
+            mPresenter.detachView();
+        }
     }
 
     protected abstract T createPresenter();

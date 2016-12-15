@@ -16,6 +16,8 @@ import com.pgyersdk.activity.FeedbackActivity;
 import com.pgyersdk.feedback.PgyFeedbackShakeManager;
 import com.umeng.analytics.MobclickAgent;
 
+import rx.Subscription;
+
 /**
  * Created by Administrator on 2016/12/9.
  * 实现网络变化监听，通过RxBus发送广播
@@ -25,13 +27,13 @@ public class LibBaseActivity extends AppCompatActivity {
 
 
     private NetWorkReceiver receiver;
+    private Subscription rxSubscription;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initNetworkReceiver();
-
     }
 
 
@@ -78,6 +80,9 @@ public class LibBaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unNetworkReceiver();
+        if (rxSubscription != null && !rxSubscription.isUnsubscribed()) {
+            rxSubscription.unsubscribe();
+        }
     }
 
     @Override
