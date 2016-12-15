@@ -2,6 +2,7 @@ package com.example.library.pay;
 
 import android.content.Context;
 
+import com.example.library.constant.Constant;
 import com.example.library.tools.ToastUtils;
 import com.tencent.mm.sdk.modelpay.PayReq;
 import com.tencent.mm.sdk.openapi.IWXAPI;
@@ -27,8 +28,8 @@ public class WXPayUtils {
 
 
     public void pay(Context context, PayReq req) {
-        final IWXAPI msgApi = WXAPIFactory.createWXAPI(context, null);
-        msgApi.registerApp("wxd930ea5d5a258f4f");
+        IWXAPI msgApi = WXAPIFactory.createWXAPI(context, null);
+        msgApi.registerApp(Constant.WX_APP_ID);
         if (!msgApi.isWXAppInstalled()) {
             ToastUtils.showShortToast("没有安装微信,请安装后再试");
             return;
