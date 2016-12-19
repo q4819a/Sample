@@ -1,14 +1,19 @@
 package com.july.sample.ui;
 
+import android.Manifest;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
+import com.example.library.keeplive.KeepLiveManager;
 import com.example.library.location.BDLocationUtils;
 import com.example.library.pay.AliPayUtils;
 import com.example.library.pay.WXPayUtils;
+import com.example.library.permissions.PermissionUtils;
 import com.example.library.tools.ToastUtils;
 import com.example.library.widget.bottomdialog.ActionSheetDialog;
 import com.example.library.widget.commondialog.CommonDialog;
@@ -41,12 +46,16 @@ public class MainActivity extends BaseActivity<IMainActivity, MainActivityPresen
     TextView okgoTv;
     @Bind(R.id.pay)
     Button pay;
+    @Bind(R.id.permission)
+    Button permission;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        KeepLiveManager.getInstance().registerKeepLiveReceiver(this);
+        KeepLiveManager.getInstance().startLiveService(this);
     }
 
     @Override
@@ -54,7 +63,7 @@ public class MainActivity extends BaseActivity<IMainActivity, MainActivityPresen
         return new MainActivityPresenter();
     }
 
-    @OnClick({R.id.btn_spring, R.id.commondialog, R.id.progressdialog, R.id.location, R.id.okgo, R.id.pay})
+    @OnClick({R.id.btn_spring, R.id.commondialog, R.id.progressdialog, R.id.location, R.id.okgo, R.id.pay, R.id.permission})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_spring:
@@ -100,7 +109,35 @@ public class MainActivity extends BaseActivity<IMainActivity, MainActivityPresen
                             }
                         }).show();
                 break;
+            case R.id.permission:
+                PermissionUtils.getInstance().registerPermission(this, 100, Manifest.permission
+                        .CALL_PHONE);
+                break;
         }
+    }
+
+    @Override
+    public void initPermissions() {
+        super.initPermissions();
+        PermissionUtils.getInstance().setRegisterPermissionCall(new PermissionUtils.OnRegisterPermissionCall() {
+            @Override
+            public void registerSuccess(int code) {
+                ToastUtils.showShortToast("注册成功");
+                callPhone();
+            }
+
+            @Override
+            public void registerFail(int code) {
+                ToastUtils.showShortToast("注册失败");
+            }
+        });
+    }
+
+    private void callPhone() {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        Uri data = Uri.parse("tel:" + "15910569078");
+        intent.setData(data);
+        startActivity(intent);
     }
 
     /**

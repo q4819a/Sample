@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.july.sample">
 
-
-    <uses-sdk tools:overrideLibrary="com.july.sample" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-sdk tools:overrideLibrary="com.example.library" />
 
 
     <application

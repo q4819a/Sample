@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.library.R;
 import com.example.library.constant.Constant;
 import com.example.library.rxbus.RxBus;
 import com.example.library.rxbus.RxEvent;
@@ -44,15 +45,15 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
     public void onResp(BaseResp resp) {
         switch (resp.errCode) {
             case 0:
-                ToastUtils.showShortToast("支付成功");
+                ToastUtils.showShortToast(getString(R.string.pay_success));
                 RxBus.getInstance().post(new RxEvent(Constant.WXPAY_PAY_SUCCESS));
                 break;
             case -1:
-                ToastUtils.showShortToast("支付失败");
+                ToastUtils.showShortToast(getString(R.string.pay_fail));
                 RxBus.getInstance().post(new RxEvent(Constant.WXPAY_PAY_FAIL));
                 break;
             case -2:
-                ToastUtils.showShortToast("取消支付");
+                ToastUtils.showShortToast(getString(R.string.pay_cancel));
                 RxBus.getInstance().post(new RxEvent(Constant.WXPAY_PAY_CANCEL));
                 break;
             default:

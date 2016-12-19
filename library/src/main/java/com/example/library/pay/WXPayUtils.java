@@ -16,6 +16,8 @@ public class WXPayUtils {
 
     private static WXPayUtils instance;
 
+
+
     private WXPayUtils() {
     }
 

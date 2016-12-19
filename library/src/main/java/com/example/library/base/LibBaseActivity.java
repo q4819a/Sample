@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.library.R;
+import com.example.library.permissions.PermissionUtils;
 import com.example.library.tools.NetWorkUtils;
 import com.example.library.tools.ToastUtils;
 import com.pgyersdk.activity.FeedbackActivity;
@@ -34,6 +36,7 @@ public class LibBaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initNetworkReceiver();
+        initPermissions();
     }
 
 
@@ -58,7 +61,7 @@ public class LibBaseActivity extends AppCompatActivity {
         // 自定义摇一摇的灵敏度，默认为950，数值越小灵敏度越高。
         PgyFeedbackShakeManager.setShakingThreshold(800);
         // 以对话框的形式弹出
-        // PgyFeedbackShakeManager.register(LibBaseActivity.this);
+        // PgyFeedbackShakeManager.registerKeepLiveReceiver(LibBaseActivity.this);
         // 以Activity的形式打开，这种情况下必须在AndroidManifest.xml配置FeedbackActivity
         // 打开沉浸式,默认为false
         FeedbackActivity.setBarImmersive(true);
@@ -122,4 +125,12 @@ public class LibBaseActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        PermissionUtils.getInstance().setRequestPermissions(requestCode, permissions, grantResults);
+    }
+
+    public void initPermissions() {
+    }
 }

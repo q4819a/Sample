@@ -63,6 +63,12 @@
                 android:layout_height="wrap_content"
                 android:text="测试支付" />
 
+            <Button
+                android:id="@+id/permission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试权限管理" />
+
         </LinearLayout>
     </ScrollView>
 

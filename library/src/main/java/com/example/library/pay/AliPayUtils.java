@@ -7,6 +7,7 @@ import android.os.Message;
 import android.text.TextUtils;
 
 import com.alipay.sdk.app.PayTask;
+import com.example.library.R;
 import com.example.library.constant.Constant;
 import com.example.library.rxbus.RxBus;
 import com.example.library.rxbus.RxEvent;
@@ -75,11 +76,11 @@ public class AliPayUtils {
                     // 判断resultStatus 为9000则代表支付成功
                     if (TextUtils.equals(resultStatus, "9000")) {
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
-                        ToastUtils.showShortToast("支付成功");
+                        ToastUtils.showShortToast(activity.getString(R.string.pay_success));
                         RxBus.getInstance().post(new RxEvent(Constant.ALIPAY_PAY_SUCCESS));
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
-                        ToastUtils.showShortToast("支付失败");
+                        ToastUtils.showShortToast(activity.getString(R.string.pay_fail));
                         RxBus.getInstance().post(new RxEvent(Constant.ALIPAY_PAY_FAIL));
                     }
                     break;

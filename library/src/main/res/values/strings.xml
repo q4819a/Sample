@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Library</string>
     <string name="network_err">网络异常，请检查网络连接！</string>
+    <string name="pay_success">支付成功</string>
+    <string name="pay_fail">支付失败</string>
+    <string name="pay_cancel">取消支付</string>
 </resources>
