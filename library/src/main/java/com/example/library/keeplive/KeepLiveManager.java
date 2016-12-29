@@ -45,7 +45,7 @@ public class KeepLiveManager {
         context.registerReceiver(receiver, filter);
     }
 
-    public void startLiveService(Context context) {
+    public void startLiveService(Context context){
         KeepLiveService.start(context);
     }
 

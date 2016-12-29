@@ -60,6 +60,15 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!--Bugly-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!--保存资源到SD卡-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
@@ -77,7 +86,9 @@
 
         <receiver android:name=".keeplive.KeepLiveReceiver" />
 
-        <service android:name=".keeplive.KeepLiveService" />
+        <service
+            android:name=".keeplive.KeepLiveService"
+            android:permission="true" />
         <service android:name=".keeplive.KeepLiveService$InnerService" />
 
         <!--百度地图 start-->
@@ -90,15 +101,6 @@
             android:value="vGCTDYXoiRnVyOVSeHzD9digjeXM14P9" />
         <!--百度地图 end-->
 
-        <!--蒲公英内测  start-->
-        <!-- 可选-->
-        <activity android:name="com.pgyersdk.activity.FeedbackActivity" />
-
-        <!-- 必选-->
-        <meta-data
-            android:name="PGYER_APPID"
-            android:value="4b6e8877dfcc2462bedb37dcf66b6d87"></meta-data>
-        <!--蒲公英内测  end-->
 
         <!--OKGO start-->
         <service android:name="com.lzy.okserver.download.DownloadService" />
@@ -125,6 +127,21 @@
             android:launchMode="singleTop" />
         <!--微信支付  end-->
 
+
+        <!--Bugly  start-->
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:theme="@android:style/Theme.Translucent" />
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.july.sample.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        <!--Bugly  end-->
     </application>
 
 </manifest>

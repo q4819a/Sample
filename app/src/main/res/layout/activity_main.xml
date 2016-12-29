@@ -69,6 +69,17 @@
                 android:layout_height="wrap_content"
                 android:text="测试权限管理" />
 
+            <Button
+                android:id="@+id/js"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="js交互" />
+
+            <Button
+                android:id="@+id/update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="测试更新" />
         </LinearLayout>
     </ScrollView>
 

@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.test.SpringTest" />
-
+        <activity android:name=".ui.test.JsTest" />
     </application>
 
 </manifest>

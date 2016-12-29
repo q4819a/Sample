@@ -5,7 +5,6 @@ import android.content.Context;
 
 import com.example.library.tools.ToastUtils;
 import com.lzy.okgo.OkGo;
-import com.pgyersdk.crash.PgyCrashManager;
 
 /**
  * Created by Administrator on 2016/12/9.
@@ -26,9 +25,16 @@ public abstract class LibBaseApp extends Application {
         initLogger();
         initToast();
         initUM();
-        initPGY();
         initOKGO();
+        initBuyly();
     }
+
+    /**
+     * 初始化Buyly
+     * 参考文档：https://bugly.qq.com/docs/user-guide/instruction-manual-android-upgrade/?v=20161219153020#sdk_1
+     */
+    protected abstract void initBuyly();
+
     /**
      * 初始化OKGO
      * 地址：https://github.com/jeasonlzy/okhttp-OkGo
@@ -62,13 +68,6 @@ public abstract class LibBaseApp extends Application {
      * UMAnalyticsConfig(Context context, String appkey, String channelId)
      */
     public abstract void initUM();
-
-    /**
-     * 蒲公英内测
-     */
-    public void initPGY() {
-        PgyCrashManager.register(this);
-    }
 
 
 }

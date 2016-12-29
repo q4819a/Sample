@@ -15,12 +15,14 @@ import com.example.library.pay.AliPayUtils;
 import com.example.library.pay.WXPayUtils;
 import com.example.library.permissions.PermissionUtils;
 import com.example.library.tools.ToastUtils;
+import com.example.library.update.UpdateUtils;
 import com.example.library.widget.bottomdialog.ActionSheetDialog;
 import com.example.library.widget.commondialog.CommonDialog;
 import com.example.library.widget.progressdialog.ProgressDlg;
 import com.july.sample.R;
 import com.july.sample.base.BaseActivity;
 import com.july.sample.presenter.MainActivityPresenter;
+import com.july.sample.ui.test.JsTest;
 import com.july.sample.ui.test.SpringTest;
 import com.orhanobut.logger.Logger;
 import com.tencent.mm.sdk.modelpay.PayReq;
@@ -48,6 +50,10 @@ public class MainActivity extends BaseActivity<IMainActivity, MainActivityPresen
     Button pay;
     @Bind(R.id.permission)
     Button permission;
+    @Bind(R.id.js)
+    Button js;
+    @Bind(R.id.update)
+    Button update;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +69,7 @@ public class MainActivity extends BaseActivity<IMainActivity, MainActivityPresen
         return new MainActivityPresenter();
     }
 
-    @OnClick({R.id.btn_spring, R.id.commondialog, R.id.progressdialog, R.id.location, R.id.okgo, R.id.pay, R.id.permission})
+    @OnClick({R.id.update, R.id.js, R.id.btn_spring, R.id.commondialog, R.id.progressdialog, R.id.location, R.id.okgo, R.id.pay, R.id.permission})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_spring:
@@ -113,7 +119,28 @@ public class MainActivity extends BaseActivity<IMainActivity, MainActivityPresen
                 PermissionUtils.getInstance().registerPermission(this, 100, Manifest.permission
                         .CALL_PHONE);
                 break;
+            case R.id.js:
+                JsTest.start(this);
+                break;
+            case R.id.update:
+                new ActionSheetDialog(this).builder()
+                        .setTitle("选择支付方式")
+                        .setCancelable(true)
+                        .addSheetItem("三方更新", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                UpdateUtils.getInstance().checkUpdate();
+                            }
+                        })
+                        .addSheetItem("自主服务器更新", ActionSheetDialog.SheetItemColor.Blue, new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                UpdateUtils.getInstance().checkUpdate(MainActivity.this, 2, false, "");
+                            }
+                        }).show();
+                break;
         }
+
     }
 
     @Override

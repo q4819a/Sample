@@ -14,4 +14,10 @@ public class ExternalConstant {
     public static final String UM_APPKEY = "584c24184ad1566181001116";
     public static final String UM_CHANNELID = "sample01";
 
+
+    /**
+     * Buyly
+     */
+    public static final String BUGLY_APP_ID = "0f744d41fa";
+
 }

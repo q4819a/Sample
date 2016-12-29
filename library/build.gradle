@@ -28,8 +28,11 @@ dependencies {
     compile 'io.reactivex:rxjava:+'
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.pgyersdk:sdk:2.4.0'
     compile 'com.lzy.net:okgo:+'
     compile 'com.lzy.net:okrx:+'
     compile 'com.lzy.net:okserver:+'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.github.lzyzsd:jsbridge:1.0.4'
+    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
 }

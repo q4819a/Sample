@@ -14,8 +14,6 @@ import com.example.library.R;
 import com.example.library.permissions.PermissionUtils;
 import com.example.library.tools.NetWorkUtils;
 import com.example.library.tools.ToastUtils;
-import com.pgyersdk.activity.FeedbackActivity;
-import com.pgyersdk.feedback.PgyFeedbackShakeManager;
 import com.umeng.analytics.MobclickAgent;
 
 import rx.Subscription;
@@ -49,24 +47,8 @@ public class LibBaseActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         MobclickAgent.onResume(this);
-        initPgyFeedback();
-
-
     }
 
-    /**
-     * 摇一摇反馈
-     */
-    private void initPgyFeedback() {
-        // 自定义摇一摇的灵敏度，默认为950，数值越小灵敏度越高。
-        PgyFeedbackShakeManager.setShakingThreshold(800);
-        // 以对话框的形式弹出
-        // PgyFeedbackShakeManager.registerKeepLiveReceiver(LibBaseActivity.this);
-        // 以Activity的形式打开，这种情况下必须在AndroidManifest.xml配置FeedbackActivity
-        // 打开沉浸式,默认为false
-        FeedbackActivity.setBarImmersive(true);
-        PgyFeedbackShakeManager.register(LibBaseActivity.this, false);
-    }
 
     @Override
     protected void onPause() {
